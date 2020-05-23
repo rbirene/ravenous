@@ -7,15 +7,20 @@ var sortByOptions = {
   "Most Reviewed": "review_count"
 }
 
-class sortByOptions extends React.Component{
+class SearchBar extends React.Component{
   renderSortByOptions(){
 
     // .keys() returns array of object's properties
     // -> ["Best Match", "Highest Rated", "Most Reviewed"]
-    // .map() iterates through keys
+    // .map() iterates through array and passes keys into callback
     return Object.keys(sortByOptions).map(sortByOption => {
-      // in callback function, values in object stored in variable and output in a list
+
+      // in callback function...
+      //    sortByOption = each key in the object
+      //    sortByOptionValue = value assigned to the key
       let sortByOptionValue = sortByOptions[sortByOption];
+
+      // return <li> element with key and value
       return <li key={sortByOptionValue}>{sortByOption}</li>;
     });
     
@@ -27,7 +32,7 @@ class sortByOptions extends React.Component{
 
         <div className="SearchBar-sort-options">
           <ul>
-            {renderSortByOptions()}
+            {this.renderSortByOptions() /* call function to list values */}
           </ul>
         </div>
 
